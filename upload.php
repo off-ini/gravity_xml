@@ -46,7 +46,7 @@ if ($uploadOk == 0) {
     $_SESSION["msg"] = "\nSorry, there was an error uploading your file.";
     $url = "csv.php";
     header("HTTP/1.1 301 Moved Permanently"); 
-    //header("Location: $url");
+    header("Location: $url");
   }
 }
 ?>

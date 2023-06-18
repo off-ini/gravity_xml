@@ -4,7 +4,7 @@ use GRAVITY_DB;
 
 CREATE TABLE IF NOT EXISTS gravity(
     gravity_id varchar(32) PRIMARY KEY NOT NULL,
-    year date null,
+    year varchar(8) null,
     country_id_o varchar(8) null,
     country_id_d varchar(8) null,
     distw_harmonic integer null,
