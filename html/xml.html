@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XML To MySQL</title>
+    <title> Labo XML</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Font Awesome CSS File -->
@@ -23,26 +23,19 @@
                 TEAM TORTUE
             </div>
             <ul class="menu">
-
                 <li>
-                    <a href="index.html" >
+                    <a href="index.html">
                         <i class="fa-regular fa-chart-bar fa-fw"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li>
-                    <a href="xml.html" class="active">
-                        <i class="fa-solid fa-database" style="color: #1e48f1;"></i>
-                        
-                        <span>Labo XML</span>
-                    </a>
-                </li>
+        
                 
                 <li>
-                    <a href="csv.html">
+                    <a href="xml.html" class="active">
                         <i class="fa-solid fa-database" style="color: #1f5120;"></i>
-                        <span>Labo CSV</span>
+                        <span>Labo XML</span>
                     </a>
                 </li>
                 
@@ -54,15 +47,15 @@
 
         <div class="content">
             
-            <h1 class="main-heading">XML TO MySQL</h1>
+            <h1 class="main-heading">CSV TO XML OR MySQL</h1>
             
             <div class="wrapper">
 
                 <div class="welcome">
                     <div class="head">
                         <div class="text">
-                            <h2>XML PROJET</h2>
-                            <span>Gravity_V202211</span>
+                            <h2>Gravity_V202211</h2>
+                            <span> XML PROJET</span>
                         </div>
                         <img src="imgs/welcome.png" alt="welcome-img" class="welcome-img">
                         <img src="imgs/activity-03.png" alt="profile_avatar" class="avatar">
@@ -70,7 +63,7 @@
                     <div class="infos">
                         <div>
                             <span>Type Change</span>
-                            <span>XML TO MySQL</span>
+                            <span>CSV TO XML AND/OR MySQL</span>
                         </div>
                         <div>
                             <span>80</span>
@@ -82,10 +75,12 @@
                         </div>
                     </div>
                     <section class="w3-container w3-card w3-leftbar w3-topbar">
-                        <label style="font-weight: bold;" for="fileselected">Charger un Fichier XML</label>
-                        <input class="w3-input"  type="file" id="fileselected">
-                        <button class="w3-bar w3-teal w3-right "  onclick="downloadCSV()">Prévisualiser</button><br>
+                        <label style="font-weight: bold;" for="csvUpload">Charger un fichier CSV </label>
+                        <input class="w3-input" type="file" id="fileselected">
+                        <button onclick="" class="w3-bar w3-teal">Prévisualiser en XML</button>
                     </section>
+
+                    
 
                     <section class="w3-container w3-card w3-leftbar w3-topbar">
                         <button onclick="clearlog()" class="w3-bar w3-teal">Effacer les Log</button>
@@ -104,10 +99,17 @@
             <div class="projects">
                 <div class="ligne">
                     <div class="block">
-                        <h2>Prévisualisation Data</h2>
+                        <h2>XML DATA</h2>
+                    </div>
+                    
+                    <div class="block">
+                        <a href="xmlUpdate.html" class="widget-btn-Tomato" >Ajouter Gravity</a>
                     </div>
                     <div class="block">
-                        <a href="profile.html" class="widget-btn-green" >Inserer dans la BD MysQL</a>
+                        <a href="profile.html" class="widget-btn-Gold" >Inserer dans la BD MysQL</a>
+                    </div>
+                    <div class="block">
+                        <a href="profile.html" class="widget-btn-green" >Exporter la table XML</a>
                     </div>
                     
                 
@@ -166,9 +168,13 @@
                                 
                                 
                                 <td class="status">
+                                    <a href="#"></a>
                                     <span class="fa-regular fa-trash-can " style="color: #a30031;"></span>
-                                    <span  class="fa-solid fa-eye" style="color: #009e54;"></span>
-                                    <span class="fa-solid fa-pen-to-square" style="color: #e65b2d;"></span>
+                                </a>
+                                    
+                                    <a href="xmlUpdate.html">
+                                        <span class="fa-solid fa-pen-to-square" style="color: #e65b2d;"></span>
+                                    </a>
                                 </td>
                             </tr>
                            
@@ -185,8 +191,8 @@
     var dom;
     document.getElementById("fileselected")
         .addEventListener('change', function (){            
-            document.getElementById("LogDiv").innerHTML='=> Chargement du fichier XML...<br>';            
-            document.getElementById("LogDiv").innerHTML+='=> Fichier XML Chargé...<br>';
+            document.getElementById("LogDiv").innerHTML='=> Chargement du fichier CSV...<br>';            
+            document.getElementById("LogDiv").innerHTML+='=> Fichier CSV Chargé...<br>';
             var fr = new FileReader();
             fr.onload = function () {
                 xmldata = fr.result;
@@ -199,6 +205,8 @@
         function clearlog(){
         document.getElementById("LogDiv").innerHTML="";        
     }
+
+    
 
 </script>
 
