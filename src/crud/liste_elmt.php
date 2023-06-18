@@ -1,4 +1,18 @@
-<?xml version="1.0"?>
+<?php
+
+function afficher_elements_xml($xml_string) {
+    $xml = simplexml_load_string($xml_string);
+    $elements = [];
+
+    $result = $xml->xpath('//*'); // Sélectionne tous les éléments XML
+    foreach ($result as $element) {
+        $elements[] = $element->getName();
+    }
+
+    return $elements;
+}
+
+$xml_data = '<?xml version="1.0" encoding="utf-8" ?>
 <gravities>
   <gravity>
     <gravity_id>711c2653b765618a6e63d33d0a27bc96</gravity_id>
@@ -132164,4 +132178,9 @@
     <gdp_d>26217726,72</gdp_d>
     <pop_pwt_o></pop_pwt_o>
   </gravity>
-</gravities>
+</gravities>';
+
+$elements_xml = afficher_elements_xml($xml_data);
+print_r($elements_xml);
+
+?>

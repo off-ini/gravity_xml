@@ -1,4 +1,23 @@
-<?xml version="1.0"?>
+<?php
+
+function modifier_elements_xml($xml_string, $element_changes) {
+    $xml = simplexml_load_string($xml_string);
+    
+    foreach ($element_changes as $element_name => $new_value) {
+        foreach ($xml->gravity as $gravity) {
+            $gravity_id = (string) $gravity->gravity_id;
+            if ($gravity_id == $element_name) {
+                $gravity->gravity_id = $new_value;
+                break;
+            }
+        }
+    }
+    
+    return $xml->asXML();
+}
+
+// Exemple d'utilisation avec le fichier XML donné
+$xml_data = '<?xml version="1.0" encoding="utf-8" ?>
 <gravities>
   <gravity>
     <gravity_id>711c2653b765618a6e63d33d0a27bc96</gravity_id>
@@ -132164,4 +132183,14 @@
     <gdp_d>26217726,72</gdp_d>
     <pop_pwt_o></pop_pwt_o>
   </gravity>
-</gravities>
+</gravities>';
+
+$element_changes = [
+    '73392eb3a661a8dc70d1e61d5cab37eb' => 'new_value1',
+    '89389fc5237153716b02bc150ed9f12a' => 'new_value2'
+];
+
+$new_xml_data = modifier_elements_xml($xml_data, $element_changes);
+echo $new_xml_data;
+
+?>

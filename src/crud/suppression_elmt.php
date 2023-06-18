@@ -1,4 +1,21 @@
-<?xml version="1.0"?>
+<?php
+
+function supprimer_elements_xml($xml_string, $element_names) {
+    $xml = simplexml_load_string($xml_string);
+    
+    foreach ($xml->gravity as $gravity) {
+        $gravity_id = (string) $gravity->gravity_id;
+        if (in_array($gravity_id, $element_names)) {
+            $dom = dom_import_simplexml($gravity);
+            $dom->parentNode->removeChild($dom);
+        }
+    }
+    
+    return $xml->asXML();
+}
+
+// Exemple d'utilisation avec le fichier XML donné
+$xml_data = '<?xml version="1.0" encoding="utf-8" ?>
 <gravities>
   <gravity>
     <gravity_id>711c2653b765618a6e63d33d0a27bc96</gravity_id>
@@ -132164,4 +132181,16 @@
     <gdp_d>26217726,72</gdp_d>
     <pop_pwt_o></pop_pwt_o>
   </gravity>
-</gravities>
+</gravities>';
+
+$elements_to_delete = [
+    '239c6ae163496529412d52eb19cc3892',
+    '89389fc5237153716b02bc150ed9f12a'
+];
+
+$new_xml_data = supprimer_elements_xml($xml_data, $elements_to_delete);
+echo $new_xml_data;
+
+
+
+?>
