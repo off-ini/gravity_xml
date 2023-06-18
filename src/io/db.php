@@ -1,6 +1,6 @@
 <?php
 
-$DBNAME = 'GRAVITY';
+$DBNAME = 'GRAVITY_DB';
 $USER = 'root';
 $PASS = '';
 $DSN = 'mysql:host=localhost;dbname='.$DBNAME;
