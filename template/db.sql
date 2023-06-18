@@ -2,13 +2,6 @@ CREATE DATABASE IF NOT EXISTS GRAVITY;
 
 use GRAVITY;
 
-;;;;;;;;;;;;;;;
-
-1 date
-2 varchar
-7 integer
-6 float
-
 CREATE TABLE IF NOT EXISTS journals(
     gravity_id varchar(32) PRIMARY KEY NOT NULL,
     year date null,
@@ -26,5 +19,5 @@ CREATE TABLE IF NOT EXISTS journals(
     pop_d float null,
     gdp_o float null,
     gdp_d float null,
-    pop_pwt_o float null,
+    pop_pwt_o float null
 );
