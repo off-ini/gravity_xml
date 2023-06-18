@@ -8,6 +8,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Font Awesome CSS File -->
     <link rel="stylesheet" href="css/all.min.css">
     <!-- Google Fonts -->
@@ -45,9 +46,31 @@
                 
             </ul>
         </div>
-
+        
+        
         <div class="content">
-            
+            <div class="topbar">
+                <div class="demo-preview ">
+                        
+                       
+                    <div class="alert alert-success alert-dismissable fade in" style="color:white;">
+                      <button type="button" data-dismiss="alert" aria-label="close" class="close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                          <strong >Well done!</strong> 
+                          You successfully read this important alert message.
+                    </div>
+                    
+                    
+                    <div class="alert alert-danger alert-dismissable fade in" style="color:white;">
+                      <button type="button" data-dismiss="alert" aria-label="close" class="close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Oh snap!</strong> 
+                        Change a few things up and try submitting again.
+                    </div>
+                </div>
+            </div>
             <h1 class="main-heading">Dashboard</h1>
             
             <div class="wrapper">
@@ -176,6 +199,8 @@
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>    
     var xmldata;
     var parser = new DOMParser();
