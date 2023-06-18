@@ -10,23 +10,13 @@
                 <span>Dashboard</span>
             </a>
         </li>
-
-        <li>
-            <a href="xml.php" >
-                <i class="fa-solid fa-database" style="color: #1e48f1;"></i>
-                
-                <span>Labo XML</span>
-            </a>
-        </li>
         
         <li>
             <a href="csv.php">
                 <i class="fa-solid fa-database" style="color: #1f5120;"></i>
-                <span>Labo CSV</span>
+                <span>Labo XML</span>
             </a>
         </li>
-        
-        
         
         
     </ul>

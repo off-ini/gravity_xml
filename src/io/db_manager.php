@@ -1,8 +1,8 @@
 <?php
 
-include("./db.php");
+//include("./db.php");
 
-$FILE_XML = "../../data/gravity.xml";
+//$FILE_XML = "../../data/gravity.xml";
 
 function xml_to_db($CON, $FILE_XML){
     
@@ -112,5 +112,27 @@ function db_to_xml($CON, $FILE_OUTPUT="gravity.xml"){
     
 }
 
+function get_gravity($CON){
+    $sql = "SELECT gravity_id, 
+            year, 
+            country_id_o, 
+            country_id_d,
+            distw_harmonic,
+            distw_arithmetic,
+            dist,
+            distcap,
+            contig,
+            comlang_off,
+            comcol,
+            comrelig,
+            pop_o,
+            pop_d,
+            gdp_o,
+            gdp_d, 
+            pop_pwt_o 
+        FROM gravity;";
+ return $CON->query($sql);
+}
+
 //xml_to_db($CON, $FILE_XML);
-db_to_xml($CON);
+//db_to_xml($CON);

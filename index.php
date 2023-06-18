@@ -1,3 +1,11 @@
+<?php 
+include("./utils/const.php");
+include("./src/io/db.php");
+include("./src/io/db_manager.php");
+
+$gravity = get_gravity($CON);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,8 +24,8 @@
                 <div class="welcome">
                     <div class="head">
                         <div class="text">
-                            <h2>XML PROJET</h2>
-                            <span>Gravity_V202211</span>
+                            <h2>Gravity_V202211</h2>
+                            <span> XML PROJET</span>
                         </div>
                         <img src="html/imgs/welcome.png" alt="welcome-img" class="welcome-img">
                         <img src="html/imgs/activity-03.png" alt="profile_avatar" class="avatar">
@@ -28,12 +36,12 @@
                             <span>MySQL</span>
                         </div>
                         <div>
-                            <span>80</span>
+                            <span>16</span>
                             <span>Colonnes</span>
                         </div>
                         <div>
-                            <span>8500</span>
-                            <span>Lignes</span>
+                            <span><?php //echo count($gravity); ?></span>
+                            <!--<span>Lignes</span>-->
                         </div>
                     </div>
                     
@@ -44,17 +52,21 @@
                     <div class="backup-manager">
                         <div class="widget-heading">
                             <h2>EXTRACTION</h2>
-                            <p>Cliquer sur le type de ficher de votre choix pour démarer l'exportation</p>
+                            <p>Cliquer sur le type de ficher de votre choix pour démarrer le téléchargement</p>
                         </div>
                         
                         <div class="method">
                             <div>
-                                <input type="radio" id="megaman" name="method" value="megaman">
-                                <label for="megaman"><i class="fa-solid fa-server"></i>XML</label>
+                                <a href="<?php if(file_exists($XML_FILE)) echo $XML_FILE; else  echo '#';  ?>">
+                                    <input type="radio" id="megaman" name="method" value="megaman">
+                                    <label for="megaman"><i class="fa-solid fa-server"></i>XML</label>
+                                </a> 
                             </div>
                             <div>
-                                <input type="radio" id="zero" name="method" value="zero" checked="">
-                                <label for="zero"><i class="fa-solid fa-server"></i>CSV</label>
+                                <a href="<?php if(file_exists($CSV_FILE)) echo $XML_FILE; else  echo '#';  ?>">
+                                    <input type="radio" id="zero" name="method" value="zero" checked="">
+                                    <label for="zero"><i class="fa-solid fa-server"></i>CSV</label>
+                                </a>
                             </div>
                             
                         </div>
@@ -69,7 +81,7 @@
                         <h2>Prévisualisation Data</h2>
                     </div>
                     <div class="block">
-                        <a href="profile.html" class="widget-btn-green" >Actualiser</a>
+                        <a href="." class="widget-btn-green" >Actualiser</a>
                     </div>
                     
                 
@@ -98,42 +110,41 @@
                                 <td>Gdp_o</td>
                                 <td>Gdp_d</td>
                                 <td>Pop_pwt_o</td>
-                                <td>Actions</td>
 
                             </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                            if($gravity != null){
+                                foreach($gravity as $element){ 
+                                
+                            ?>
                             <tr>
-                                <td>d0f109e1b56b2f0bb324bf0778ab2e53</td>												
-                                <td>1982</td>
-                                <td>TGO</td>
-                                <td>AGO</td>
+                                <td><?php echo $element['gravity_id']; ?></td>												
+                                <td><?php echo $element['year']; ?></td>
+                                <td><?php echo $element['country_id_o']; ?></td>
+                                <td><?php echo $element['country_id_d']; ?></td>
                                 
-                                <td>2257</td>
-                                <td>2281</td>
-                                <td>2126</td>
-                                <td>2126</td>
+                                <td><?php echo $element['distw_harmonic']; ?></td>
+                                <td><?php echo $element['distw_arithmetic']; ?></td>
+                                <td><?php echo $element['dist']; ?></td>
+                                <td><?php echo $element['distcap']; ?></td>
 
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0,213368997</td>
+                                <td><?php echo $element['contig']; ?></td>
+                                <td><?php echo $element['comlang_off']; ?></td>
+                                <td><?php echo $element['comcol']; ?></td>
+                                <td><?php echo $element['comrelig']; ?></td>
                                 			
-                                <td>2915,098</td>
-                                <td>8190,093</td>
-                                <td>821652,032</td>
-                                <td>6964499,968</td>
+                                <td><?php echo $element['pop_o']; ?></td>
+                                <td><?php echo $element['pop_d']; ?></td>
+                                <td><?php echo $element['gdp_o']; ?></td>
+                                <td><?php echo $element['gdp_d']; ?></td>
 
-                                <td>2915,065918</td>
-                                
-                                
-                                <td class="status">
-                                    <span class="fa-regular fa-trash-can " style="color: #a30031;"></span>
-                                    <span  class="fa-solid fa-eye" style="color: #009e54;"></span>
-                                    <span class="fa-solid fa-pen-to-square" style="color: #e65b2d;"></span>
-                                </td>
+                                <td><?php echo $element['pop_pwt_o']; ?></td>
                             </tr>
-                           
+                           <?php 
+                           } }
+                           ?>
                         </tbody>
                     </table>
                 </div>

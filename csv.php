@@ -2,6 +2,11 @@
 session_start();
 include("./utils/const.php");
 
+$xml = null;
+if(file_exists($XML_FILE)){
+    $xml = simplexml_load_file($XML_FILE);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +23,7 @@ include("./utils/const.php");
             <h1 class="main-heading">CSV TO MySQL</h1>
             <?php if(isset($_SESSION["msg"])){ ?>
                 <h3><?php echo $_SESSION["msg"]; ?></h3>
-            <?php unset($_SESSION["msg"]); } ?>
+            <?php unlink($_SESSION["msg"]); } ?>
             <div class="wrapper">
                 <div class="welcome">
                     <div class="head">
@@ -39,7 +44,7 @@ include("./utils/const.php");
                             <span>Colonnes</span>
                         </div>
                         <div>
-                            <span>8500</span>
+                            <span><?php echo isset($xml) ? count($xml) : '0'; ?></span>
                             <span>Lignes</span>
                         </div>
                     </div>
@@ -68,10 +73,16 @@ include("./utils/const.php");
             <div class="projects">
                 <div class="ligne">
                     <div class="block">
-                        <h2>Prévisualisation Data</h2>
+                        <h2>XML DATA</h2>
                     </div>
                     <div class="block">
-                        <a href="profile.html" class="widget-btn-green" >Inserer dans la BD MysQL</a>
+                        <a href="add.php" class="widget-btn-Tomato" >Ajouter Gravity</a>
+                    </div>
+                    <div class="block">
+                        <a href="insert_db_s.php" class="widget-btn-Gold" >Inserer dans la BD MysQL</a>
+                    </div>
+                    <div class="block">
+                        <a href="<?php if(file_exists($XML_FILE)) echo $XML_FILE; else  echo '#';  ?>" class="widget-btn-green" >Exporter la table XML</a>
                     </div>
                     
                 
@@ -106,8 +117,7 @@ include("./utils/const.php");
                         </thead>
                         <tbody>
                             <?php 
-                            if(file_exists($XML_FILE)){
-                                $xml = simplexml_load_file($XML_FILE);
+                            if($xml != null){
                                 foreach($xml as $element){
                             
                             ?>
