@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gravities>
+    <gravity>
+        <year></year>
+        <country_id_o></country_id_o>
+        <country_id_d></country_id_d>
+        <distw_harmonic></distw_harmonic>
+        <distw_arithmetic></distw_arithmetic>
+        <dist></dist>
+        <distcap></distcap>
+        <contig></contig>
+        <comlang_off></comlang_off>
+        <comcol></comcol>
+        <comrelig></comrelig>
+        <pop_o></pop_o>
+        <pop_d></pop_d>
+        <gdp_o></gdp_o>
+        <gdp_d></gdp_d>
+        <pop_pwt_o></pop_pwt_o>
+    </gravity>
+</gravities>
