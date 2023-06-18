@@ -2,16 +2,29 @@ CREATE DATABASE IF NOT EXISTS GRAVITY;
 
 use GRAVITY;
 
-;country_id_o;country_id_d;distw_harmonic;distw_arithmetic;dist;distcap;contig;comlang_off;comcol;comrelig;pop_o;pop_d;gdp_o;gdp_d;pop_pwt_o
+;;;;;;;;;;;;;;;
 
+1 date
+2 varchar
+7 integer
+6 float
 
 CREATE TABLE IF NOT EXISTS journals(
-    id integer PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    gravity_id varchar(32) PRIMARY KEY NOT NULL,
     year date null,
-    DateFrom varchar(20) null,
-    DateTo varchar(20) null,
-    IsAdminLog boolean null DEFAULT 0,
-    MaxResults integer null,
-    SubscriberId integer null,
-    Created_at datetime DEFAULT now()
+    country_id_o varchar(8) null,
+    country_id_d varchar(8) null,
+    distw_harmonic integer null,
+    distw_arithmetic integer null,
+    dist integer null,
+    distcap integer null,
+    contig integer null DEFAULT 0,
+    comlang_off integer null DEFAULT 0,
+    comcol integer null DEFAULT 0,
+    comrelig float null,
+    pop_o float null,
+    pop_d float null,
+    gdp_o float null,
+    gdp_d float null,
+    pop_pwt_o float null,
 );
