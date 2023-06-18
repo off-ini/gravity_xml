@@ -1,9 +1,11 @@
 <?php
 
-$CSV_FILE = "../../data/Gravity_V202211.csv";
-$OUTPUT_FILE = "../../data/gravity.xml";
+//$CSV_FILE = "../../data/Gravity_V202211.csv";
+//$OUTPUT_FILE = "../../data/gravity.xml";
 
 function csv_to_xml($CSV_FILE, $OUTPUT_FILE){
+    if(!file_exists($CSV_FILE)) return false;
+
     $file = fopen($CSV_FILE, 'r');
 
     if($file != null){
@@ -39,7 +41,9 @@ function csv_to_xml($CSV_FILE, $OUTPUT_FILE){
         fclose($file);
 
         $doc->save($OUTPUT_FILE);
+
+        return true;
     }
 }
 
-csv_to_xml($CSV_FILE, $OUTPUT_FILE);
+//csv_to_xml($CSV_FILE, $OUTPUT_FILE);
