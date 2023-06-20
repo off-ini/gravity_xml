@@ -3,7 +3,12 @@ include("./utils/const.php");
 include("./src/io/db.php");
 include("./src/io/db_manager.php");
 
-$gravity = get_gravity($CON);
+try{
+    $gravity = get_gravity($CON);
+}catch(PDOException $e){
+    include("migrate.php");
+}
+
 ?>
 
 <!DOCTYPE html>
