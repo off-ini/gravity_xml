@@ -56,16 +56,15 @@ $gravity = get_gravity($CON);
                         </div>
                         
                         <div class="method">
-                            <div>
-                                <a href="<?php if(file_exists($XML_FILE)) echo $XML_FILE; else  echo '#';  ?>">
-                                    <input type="radio" id="megaman" name="method" value="megaman">
-                                    <label for="megaman"><i class="fa-solid fa-server"></i>XML</label>
-                                </a> 
+                          
+                            <div class="block">
+                                <a href="<?php if(file_exists($XML_FILE)) echo $XML_FILE; else  echo '#';  ?>"  >
+                                <label for="zero"><i class="fa-solid fa-server"></i>XML</label>
+                                </a>
                             </div>
-                            <div>
-                                <a href="<?php if(file_exists($CSV_FILE)) echo $XML_FILE; else  echo '#';  ?>">
-                                    <input type="radio" id="zero" name="method" value="zero" checked="">
-                                    <label for="zero"><i class="fa-solid fa-server"></i>CSV</label>
+                            <div class="block">
+                                <a href="<?php if(file_exists($CSV_FILE)) echo $CSV_FILE; else  echo '#';  ?>"  >
+                                <label for="zero"><i class="fa-solid fa-server"></i>CSV</label>
                                 </a>
                             </div>
                             
@@ -88,10 +87,10 @@ $gravity = get_gravity($CON);
                 </div>
                 
                 <div class="responsive-table2">
-                    <table>
+                    <table id="datatable" class="display compact" style="width:100%">
                         <thead>
                             <tr>
-                                <td>gravity_id</td>
+                               <!-- <td>gravity_id</td> -->
                                 <td>Year</td>
                                 <td>Country_id_o</td>
                                 <td>Country_id_d</td>
@@ -120,7 +119,7 @@ $gravity = get_gravity($CON);
                                 
                             ?>
                             <tr>
-                                <td><?php echo $element['gravity_id']; ?></td>												
+                              <!--  <td><?php// echo $element['gravity_id']; ?></td>	-->											
                                 <td><?php echo $element['year']; ?></td>
                                 <td><?php echo $element['country_id_o']; ?></td>
                                 <td><?php echo $element['country_id_d']; ?></td>
@@ -152,6 +151,7 @@ $gravity = get_gravity($CON);
         </div>
     </div>
 </body>
+<?php include("./layout/script.php"); ?>
 <script>    
     var xmldata;
     var parser = new DOMParser();

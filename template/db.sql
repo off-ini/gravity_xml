@@ -21,3 +21,5 @@ CREATE TABLE IF NOT EXISTS gravity(
     gdp_d float null,
     pop_pwt_o float null
 );
+
+TRUNCATE TABLE gravity;

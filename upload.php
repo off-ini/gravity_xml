@@ -15,14 +15,14 @@ if (file_exists($target_file)) {
 }
 
 // Check file size
-if ($_FILES["csvUpload"]["size"] > 5000000) {
-    $_SESSION["msg"] = "Sorry, your file is too large.";
+if ($_FILES["csvUpload"]["size"] > 50000000) {
+    $_SESSION["msg"] = "Désolé, votre fichier est trop volumineux.";
   $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($imageFileType != "csv") {
-    $_SESSION["msg"] = "Sorry, only CSV files are allowed.";
+    $_SESSION["msg"] = "Désolé, seuls les fichiers CSV sont autorisés.";
   $uploadOk = 0;
 }
 
@@ -37,13 +37,13 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($_FILES["csvUpload"]["tmp_name"], $CSV_FILE)) {
     csv_to_xml($CSV_FILE, $XML_FILE);
     $_SESSION["error"] = false;
-    $_SESSION["msg"] =  "The file ". htmlspecialchars( basename( $_FILES["csvUpload"]["name"])). " has been uploaded.";
+    $_SESSION["msg"] =  "Le fichier ". htmlspecialchars( basename( $_FILES["csvUpload"]["name"])). " a été upload.";
     $url = "csv.php";
     header("HTTP/1.1 301 Moved Permanently"); 
     header("Location: $url");
   } else {
     $_SESSION["error"] = true;
-    $_SESSION["msg"] = "\nSorry, there was an error uploading your file.";
+    $_SESSION["msg"] = "Désolé, une erreur s'est produite lors du upload de votre fichier.";
     $url = "csv.php";
     header("HTTP/1.1 301 Moved Permanently"); 
     header("Location: $url");
