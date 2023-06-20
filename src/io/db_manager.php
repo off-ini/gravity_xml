@@ -4,7 +4,21 @@
 
 //$FILE_XML = "../../data/gravity.xml";
 
+function truncate_table($CON){
+    try{
+        $sql = "TRUNCATE TABLE gravity;";
+
+        $CON->query($sql);
+        return true;
+    }catch(Exception $e){
+        echo "TRUNCATE TABLE ERROR : ".$e;
+        return false;
+    }
+}
+
 function xml_to_db($CON, $FILE_XML){
+
+    truncate_table($CON);
     
     try{
         if(file_exists($FILE_XML)){

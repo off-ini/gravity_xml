@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Font Awesome CSS File -->
     <link rel="stylesheet" href="html/css/all.min.css">
+    <link rel="stylesheet" href="html/css/datatable.css">
+    <link rel="stylesheet" href="html/css/alert.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
